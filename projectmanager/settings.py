@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from pathlib import Path
+import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'projects',
+    'rest_framework',
+    'star_ratings',
+    'cloudinary',
+    'bootstrap4',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +86,10 @@ WSGI_APPLICATION = 'projectmanager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'awwards',
+        'USER': 'moringa',
+    'PASSWORD':'w1nj3k4',
     }
 }
 
@@ -118,3 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+cloudinary.config( 
+  cloud_name = "dbnv1yscx", 
+  api_key = "296138953896598", 
+  api_secret = "07FLCh357mC7C4ms_o9VT1zhnLc" 
+)
